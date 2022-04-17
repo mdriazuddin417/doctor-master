@@ -1,0 +1,44 @@
+[
+  {
+    "id": 0,
+    "price": "$31",
+    "picture": "https://i.ibb.co/Bqsw9kG/banner3.jpg",
+    "name": "Margery Allen",
+    "text": "Do occaecat et minim nostrud. Non quis proident mollit pariatur fugiat. Incididunt Lorem eu amet consectetur est velit."
+  },
+  {
+    "id": 1,
+    "price": "$34",
+    "picture": "https://i.ibb.co/Bqsw9kG/banner3.jpg",
+    "name": "Brennan Lester",
+    "text": "Do occaecat et minim nostrud. Non quis proident mollit pariatur fugiat. Incididunt Lorem eu amet consectetur est velit."
+  },
+  {
+    "id": 2,
+    "price": "$28",
+    "picture": "https://i.ibb.co/Bqsw9kG/banner3.jpg",
+    "name": "Flora Sloan",
+    "text": "Do occaecat et minim nostrud. Non quis proident mollit pariatur fugiat. Incididunt Lorem eu amet consectetur est velit."
+  },
+  {
+    "id": 3,
+    "price": "$19",
+    "picture": "https://i.ibb.co/Bqsw9kG/banner3.jpg",
+    "name": "Pennington Cooke",
+    "text": "Do occaecat et minim nostrud. Non quis proident mollit pariatur fugiat. Incididunt Lorem eu amet consectetur est velit."
+  },
+  {
+    "id": 4,
+    "price": "$19",
+    "picture": "https://i.ibb.co/Bqsw9kG/banner3.jpg",
+    "name": "Burton Lopez",
+    "text": "Do occaecat et minim nostrud. Non quis proident mollit pariatur fugiat. Incididunt Lorem eu amet consectetur est velit."
+  },
+  {
+    "id": 5,
+    "price": "$38",
+    "picture": "https://i.ibb.co/Bqsw9kG/banner3.jpg",
+    "name": "Rose Guzman",
+    "text": "Do occaecat et minim nostrud. Non quis proident mollit pariatur fugiat. Incididunt Lorem eu amet consectetur est velit. "
+  }
+]
