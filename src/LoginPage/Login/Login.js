@@ -11,6 +11,8 @@ import auth from "../../firebase.init";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import LoginWithSocialAccount from "../LoginWithSocailAccount/LoginWithSocialAccount";
+import Loading from "../Loading/Loading";
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
 
@@ -36,19 +38,23 @@ const Login = () => {
     signInWithEmailAndPassword(userInfo.email, userInfo.password);
   };
 
+  if (user) {
+    toast.success("Login Successful !!");
+  }
+
   useEffect(() => {
     if (hookError) {
       console.log(hookError);
       switch (hookError?.code) {
         case "auth/user-not-found":
-          toast("Please enter a valid Email !");
+          toast.error("Please enter a valid Email !");
           break;
         case "auth/wrong-password":
-          toast("Wrong Password !!");
+          toast.error("Wrong Password !!");
           break;
 
         default:
-          toast("Something went wrong");
+          toast.error("Something went wrong");
           break;
       }
     }
@@ -62,7 +68,6 @@ const Login = () => {
     if (user) {
       navigate(from);
       toast("Login Successful !!");
-      console.log(user);
     }
   }, [user]);
 
@@ -100,7 +105,7 @@ const Login = () => {
               }}
             />
           </Form.Group>
-          {loading && <p>Loading...</p>}
+          {loading && <Loading />}
           <div className="flex justify-center items-center mt-3 mb-2">
             <button type="submit" className="pushable ">
               <span className="front">LogIn</span>
@@ -114,6 +119,7 @@ const Login = () => {
             SignUp
           </Link>
         </p>
+        <LoginWithSocialAccount />
       </div>
       <ToastContainer />
     </div>

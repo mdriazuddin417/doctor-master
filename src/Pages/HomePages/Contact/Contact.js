@@ -21,8 +21,8 @@ const Contact = () => {
           </div>
         </div>
         <div className="flex justify-center items-center mt-5">
-          <button class="pushable ">
-            <span class="front">Submit</span>
+          <button className="pushable ">
+            <span className="front">Submit</span>
           </button>
         </div>
       </div>

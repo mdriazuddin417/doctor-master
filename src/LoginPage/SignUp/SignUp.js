@@ -12,6 +12,8 @@ import auth from "../../firebase.init";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { sendEmailVerification } from "firebase/auth";
+import LoginWithSocialAccount from "../LoginWithSocailAccount/LoginWithSocialAccount";
+import Loading from "../Loading/Loading";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
@@ -75,24 +77,31 @@ const SignUp = () => {
     }
   };
 
-  const handleSignUp = (event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
-    createUserWithEmailAndPassword(userInfo.email, userInfo.password);
-    updateProfile({ displayName: userInfo.name });
+    await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+    await updateProfile({ displayName: userInfo.name });
   };
 
+  if (updating) {
+    toast.success("Profile Update");
+  }
   useEffect(() => {
-    if (hookError || error) {
+    if (hookError) {
+      console.log(hookError);
       switch (hookError?.code) {
         case "auth/invalid-email":
-          toast("Invalid email !");
+          toast.error("Invalid email !");
           break;
         case "auth/invalid-password":
-          toast("Wrong password. Intruder!!");
+          toast.error("Wrong password. Intruder!!");
+          break;
+        case "auth/email-already-in-use":
+          toast.error("This email is already use !!");
           break;
 
         default:
-          toast("Something went wrong");
+          toast.error("Something went wrong");
           break;
       }
     }
@@ -183,7 +192,7 @@ const SignUp = () => {
               </p>
             )}
           </Form.Group>
-          {loading && <p>Loading...</p>}
+          {loading && <Loading />}
           <div className="flex justify-center items-center mt-3 mb-2">
             <button type="submit" className="pushable ">
               <span className="front">Sign Up</span>
@@ -197,6 +206,7 @@ const SignUp = () => {
             Login
           </Link>
         </p>
+        <LoginWithSocialAccount />
       </div>
       <ToastContainer />
     </div>
