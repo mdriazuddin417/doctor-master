@@ -1,10 +1,10 @@
-import { Button } from "react-bootstrap";
 import React from "react";
 import { Form } from "react-bootstrap";
 import { FaRegUserCircle } from "react-icons/fa";
-import "./Login.css";
+
 import { Link } from "react-router-dom";
-const Login = () => {
+
+const SignUp = () => {
   return (
     <div className="h-[80vh] flex justify-center items-center">
       <div className=" form-container text-center ">
@@ -30,13 +30,11 @@ const Login = () => {
             </button>
           </div>
         </Form>
+
         <p>
-          Forgot <button className="text-blue-500">Password?</button>
-        </p>
-        <p>
-          Don't have an account ?{" "}
+          Already have an account ?{" "}
           <Link to={"/signup"} className="decoration-transparent">
-            Sign up
+            Login
           </Link>
         </p>
       </div>
@@ -44,4 +42,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

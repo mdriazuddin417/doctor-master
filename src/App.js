@@ -8,6 +8,8 @@ import Blog from "./Pages/Blog/Blog";
 import About from "./Pages/About/About";
 import Login from "./LoginPage/Login/Login";
 import Footer from "./Shared/Footer/Footer";
+import CheckOut from "./Pages/CheckOut/CheckOut";
+import SignUp from "./LoginPage/SignUp/SignUp";
 
 function App() {
   return (
@@ -18,9 +20,11 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/services" element={<Services />}></Route>
+        <Route path="/checkout" element={<CheckOut />} />
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
       </Routes>
       <Footer />
     </div>

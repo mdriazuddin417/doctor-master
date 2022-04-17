@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 const Header = () => {
   return (
-    <div>
+    <div className="">
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/home">
@@ -16,14 +16,17 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="/home#features">Home</Nav.Link>
-              <Nav.Link href="/home#pricing">Services</Nav.Link>
+              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/home#services">Services</Nav.Link>
+              <Nav.Link href="/home#feedback">FeedBack</Nav.Link>
+
               <Nav.Link as={Link} to="/blog">
                 Blog
               </Nav.Link>
               <Nav.Link as={Link} to="/about">
                 About
               </Nav.Link>
+              <Nav.Link href="/home#contact">Contact</Nav.Link>
               <Nav.Link as={Link} to="/login">
                 Log In
               </Nav.Link>

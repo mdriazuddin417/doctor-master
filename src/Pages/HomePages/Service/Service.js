@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { CgShoppingCart } from "react-icons/cg";
+import { Link } from "react-router-dom";
 const Service = ({ service }) => {
   const { price, name, id, picture, text } = service;
   return (
@@ -11,9 +12,11 @@ const Service = ({ service }) => {
           <Card.Title>{name}</Card.Title>
           <p className="text-2xl text-blue-600 font-bold">{price}</p>
           <Card.Text className="text-gray-400">{text}</Card.Text>
-          <button className="bg-green-500 text-white  py-2 rounded-2xl w-100 flex justify-center items-center text-xl hover:bg-green-800 hover:text-black hover:transition ">
-            Order Now <CgShoppingCart className="text-2xl ms-2 " />
-          </button>
+          <Link to={"/checkout"} className="decoration-transparent">
+            <button className="bg-green-500 text-white  py-2 rounded-2xl w-100 flex justify-center items-center text-xl hover:bg-green-800 hover:text-black hover:transition ">
+              Order Now <CgShoppingCart className="text-2xl ms-2 " />
+            </button>
+          </Link>
         </Card.Body>
       </Card>
     </div>
