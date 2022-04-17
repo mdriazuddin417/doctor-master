@@ -11,6 +11,7 @@ const Home = () => {
       <Banner />
       <Services />
       <Feedbacks />
+      <Contact />
     </div>
   );
 };
