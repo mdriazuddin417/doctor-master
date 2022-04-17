@@ -1,9 +1,9 @@
-import { Button } from "react-bootstrap";
 import React from "react";
 import { Form } from "react-bootstrap";
 import { FaRegUserCircle } from "react-icons/fa";
 import "./Login.css";
 import { Link } from "react-router-dom";
+
 const Login = () => {
   return (
     <div className="h-[80vh] flex justify-center items-center">
