@@ -7,7 +7,7 @@ const Services = () => {
   const [services, setServices] = useServices();
   return (
     <div className="max-w-7xl my-5 px-12">
-      <h2 className="text-center text-3xl text-blue-600 uppercase">
+      <h2 className="text-center text-3xl  section-header uppercase relative pb-2">
         My Services
       </h2>
       <h3 className="text-center text-xl text-blue-300 ">

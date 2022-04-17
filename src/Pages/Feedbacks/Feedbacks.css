@@ -1,0 +1,20 @@
+.button {
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgb(24, 113, 230);
+  border-radius: 100%;
+}
+.button:hover {
+  background-color: rgb(71, 112, 248);
+}
+
+.section-header:before {
+  content: "";
+  width: 100px;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 46%;
+  border: 2px solid rgb(14, 179, 230);
+  border-radius: 10px;
+}

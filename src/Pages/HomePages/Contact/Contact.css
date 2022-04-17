@@ -1,0 +1,42 @@
+.contact input,
+textarea {
+  background-color: rgba(221, 221, 221, 0.575);
+  padding: 15px;
+  width: 100%;
+  margin: 15px 0px;
+  border-radius: 10px;
+}
+.contact input:last-child {
+  margin-bottom: 0;
+}
+.contact input:focus,
+textarea:focus {
+  outline: none;
+}
+textarea {
+  height: 100%;
+}
+.pushable:focus:not(:focus-visible) {
+  outline: none;
+}
+.pushable {
+  background: rgb(3, 107, 241);
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+.front {
+  display: block;
+  padding: 5px 30px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  background: rgb(0, 144, 240);
+  color: white;
+  transform: translateY(-6px);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+}

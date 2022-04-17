@@ -5,7 +5,7 @@ import banner2 from "../../../images/Banner/banner2.jpg";
 import banner3 from "../../../images/Banner/banner3.jpg";
 import { GrCertificate } from "react-icons/gr";
 import { GiAlarmClock } from "react-icons/gi";
-import { ImUsers } from "react-icons/im";
+
 import { BiLike } from "react-icons/bi";
 const Banner = () => {
   const [index, setIndex] = useState(0);

@@ -7,6 +7,7 @@ import Services from "./Pages/HomePages/Services/Services";
 import Blog from "./Pages/Blog/Blog";
 import About from "./Pages/About/About";
 import Login from "./LoginPage/Login/Login";
+import Footer from "./Shared/Footer/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }
