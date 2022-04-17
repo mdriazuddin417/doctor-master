@@ -85,14 +85,14 @@ const SignUp = () => {
     if (hookError || error) {
       switch (hookError?.code) {
         case "auth/invalid-email":
-          toast.danger("Invalid email !");
+          toast("Invalid email !");
           break;
         case "auth/invalid-password":
-          toast.danger("Wrong password. Intruder!!");
+          toast("Wrong password. Intruder!!");
           break;
 
         default:
-          toast.danger("Something went wrong");
+          toast("Something went wrong");
           break;
       }
     }
@@ -108,10 +108,6 @@ const SignUp = () => {
       console.log(user);
     }
   }, [user]);
-
-  if (loading) {
-    return <p>Loading....</p>;
-  }
 
   return (
     <div className="h-[80vh] flex justify-center items-center">
@@ -129,6 +125,7 @@ const SignUp = () => {
               onChange={handleNameChange}
               type="text"
               placeholder="Your Name"
+              name="name"
               required
             />
           </Form.Group>
@@ -137,6 +134,7 @@ const SignUp = () => {
               onChange={handleEmailChange}
               type="email"
               placeholder="Enter email"
+              name="email"
               required
             />
             {errors?.emailErrors && (
@@ -151,6 +149,7 @@ const SignUp = () => {
               onChange={handlePasswordChange}
               type={showPass ? "text" : "password"}
               placeholder="Password"
+              name="password"
               required
             />
             <BiShow
@@ -184,7 +183,7 @@ const SignUp = () => {
               </p>
             )}
           </Form.Group>
-
+          {loading && <p>Loading...</p>}
           <div className="flex justify-center items-center mt-3 mb-2">
             <button type="submit" className="pushable ">
               <span className="front">Sign Up</span>
