@@ -6,7 +6,7 @@ import Service from "../Service/Service";
 const Services = () => {
   const [services, setServices] = useServices();
   return (
-    <div className="max-w-7xl my-5 px-12">
+    <div className="max-w-7xl my-5 px-12" id="services">
       <h2 className="text-center text-3xl  section-header uppercase relative pb-2">
         My Services
       </h2>
