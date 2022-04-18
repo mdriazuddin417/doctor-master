@@ -3,7 +3,7 @@ import { Carousel } from "react-bootstrap";
 import banner1 from "../../../images/Banner/banner.jpg";
 import banner2 from "../../../images/Banner/banner2.jpg";
 import banner3 from "../../../images/Banner/banner3.jpg";
-import { GrCertificate } from "react-icons/gr";
+import { AiFillSafetyCertificate } from "react-icons/ai";
 import { GiAlarmClock } from "react-icons/gi";
 
 import { BiLike } from "react-icons/bi";
@@ -31,7 +31,7 @@ const Banner = () => {
       <div className=" px-24  ">
         <div className="grid lg:grid-cols-3   ">
           <div className="bg-sky-400  rounded p-8 text-white border-l-2">
-            <GrCertificate className="text-7xl text-white mb-3" />
+            <AiFillSafetyCertificate className="text-7xl text-white mb-3" />
             <h3>Certification</h3>
             <p>
               Corned beef pancetta ut, aliquip tri-tip turducken pork chop. Cow

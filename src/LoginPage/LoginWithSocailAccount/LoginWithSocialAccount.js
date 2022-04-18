@@ -7,10 +7,10 @@ import {
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
-import Loading from "../Loading/Loading";
+
 const LoginWithSocialAccount = () => {
   const navigate = useNavigate();
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -20,9 +20,12 @@ const LoginWithSocialAccount = () => {
   const [signInWithGithub, githubUser, githubLoading, githubError] =
     useSignInWithGithub(auth);
 
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   useEffect(() => {
     if (googleUser || facebookUser || githubUser) {
-      navigate("/");
+      navigate(from);
+      toast("Something is Problem");
     }
   }, [googleUser, facebookUser, githubUser]);
 

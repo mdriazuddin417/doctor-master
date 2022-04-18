@@ -9,7 +9,7 @@ import "./Header.css";
 const Header = () => {
   const [user] = useAuthState(auth);
   return (
-    <div className="">
+    <div className="sticky top-0 z-50">
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/home">

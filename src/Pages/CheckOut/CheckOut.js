@@ -4,7 +4,7 @@ import useServices from "../../hooks/useServices";
 const CheckOut = (props) => {
   const [services, setServices] = useServices();
   return (
-    <div className="h-[80vh] grid lg:grid-cols-3 gap-4 px-12 mx-auto max-w-7xl bg-gray-300">
+    <div className=" grid lg:grid-cols-3 gap-4 px-12 mx-auto max-w-7xl bg-gray-300 pb-60">
       <div className="lg:col-span-2 ...">
         <div className="w-100 bg-white rounded-lg py-3 px-4 mt-3">
           <h2 className="text-xl font-bold">Shipping Information</h2>
@@ -33,12 +33,7 @@ const CheckOut = (props) => {
           {services.slice(0, 1).map((service) => (
             <div>
               <div className="flex gap-4">
-                <img
-                  src={service.picture}
-                  alt=""
-                  width={300}
-                  className="rounded-lg"
-                />
+                <img src={service.picture} alt="" className="rounded-lg w-25" />
                 <div>
                   <p className="text-xl font-bold">{service.name}</p>
                   <p className="text-xl text-gray-700">{service.text}</p>
