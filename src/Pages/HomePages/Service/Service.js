@@ -19,7 +19,7 @@ const Service = ({ service }) => {
   };
   return (
     <div className="animate__animated animate__fadeInLeft ">
-      <Card className="h-100 rounded-2xl border-0 shadow">
+      <Card className="h-100 rounded-2xl border-0 shadow transition-all hover:scale-[1.1] hover:bg-gray-200">
         <Card.Img variant="top" src={picture} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
