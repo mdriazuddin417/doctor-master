@@ -1,8 +1,13 @@
 import React from "react";
 import useServices from "../../hooks/useServices";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const CheckOut = (props) => {
   const [services, setServices] = useServices();
+
+  const handleToast = () => {
+    toast.success("Thanks for you !!");
+  };
   return (
     <div className=" grid lg:grid-cols-3 gap-4 px-12 mx-auto max-w-7xl bg-gray-300 pb-60 ">
       <div className="lg:col-span-2 ...">
@@ -77,11 +82,17 @@ const CheckOut = (props) => {
             </button>
           </div>
           <p className="text-2xl font-bold mb-2">Total:$ 31</p>
-          <button className="bg-orange-400 text-white rounded w-100 py-2">
+          <button
+            className="bg-orange-400 text-white rounded w-100 py-2"
+            onClick={() => {
+              handleToast();
+            }}
+          >
             Place Order
           </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
