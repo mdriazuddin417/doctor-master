@@ -81,8 +81,6 @@ const SignUp = () => {
     event.preventDefault();
     await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
     await updateProfile({ displayName: userInfo.name });
-
-    toast.success("Sent Email....");
   };
 
   useEffect(() => {
@@ -111,13 +109,13 @@ const SignUp = () => {
 
   useEffect(() => {
     if (user) {
+      toast.success("Sent Email....");
       navigate(from);
-      console.log(user);
     }
   }, [user]);
 
   return (
-    <div className="h-[80vh] flex justify-center items-center">
+    <div className="h-[100vh] flex justify-center items-center">
       <div className=" form-container text-center w-[300px] ">
         <div className="flex justify-center items-center">
           <FaRegUserCircle className="text-7xl text-blue-500" />

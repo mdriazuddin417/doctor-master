@@ -45,7 +45,12 @@ const Login = () => {
   };
 
   const handleResetPassword = async () => {
-    await sendPasswordResetEmail(userInfo.email);
+    if (userInfo.email) {
+      await sendPasswordResetEmail(userInfo.email);
+      toast.success("Sent email !!");
+    } else {
+      toast.error("Please enter a valid email !!");
+    }
   };
   useEffect(() => {
     if (hookError) {
@@ -77,7 +82,7 @@ const Login = () => {
   }, [user]);
 
   return (
-    <div className="h-[80vh] flex justify-center items-center">
+    <div className="h-[100vh] flex justify-center items-center">
       <div className=" form-container text-center w-[300px] ">
         <div className="flex justify-center items-center">
           <FaRegUserCircle className="text-7xl text-blue-500" />
