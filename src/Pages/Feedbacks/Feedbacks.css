@@ -18,3 +18,17 @@
   border: 2px solid rgb(14, 179, 230);
   border-radius: 10px;
 }
+.feedback img {
+  border-radius: 5px;
+}
+
+@media (max-width: 500px) {
+  .section-header:before {
+    left: 32%;
+  }
+}
+@media (max-width: 800px) {
+  .section-header:before {
+    left: 40%;
+  }
+}

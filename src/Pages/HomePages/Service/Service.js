@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { CgShoppingCart } from "react-icons/cg";
@@ -18,7 +18,7 @@ const Service = ({ service }) => {
     }
   };
   return (
-    <div>
+    <div className="animate__animated animate__fadeInLeft ">
       <Card className="h-100 rounded-2xl border-0 shadow">
         <Card.Img variant="top" src={picture} />
         <Card.Body>

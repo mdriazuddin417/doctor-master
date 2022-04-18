@@ -5,6 +5,7 @@ import logo from "../../images/logo.png";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import auth from "../../firebase.init";
+import CustomLink from "../../CustomLink";
 import "./Header.css";
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -21,21 +22,29 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/home" className="link">
+              <Nav.Link
+                as={CustomLink}
+                to="/home"
+                className="text-xl text-white"
+              >
                 Home
               </Nav.Link>
-              <Nav.Link href="/home#services">Services</Nav.Link>
-              <Nav.Link href="/home#feedback">FeedBack</Nav.Link>
 
-              <Nav.Link as={Link} to="/blog" className="link">
+              <Nav.Link
+                as={CustomLink}
+                to="/blog"
+                className="text-xl text-white"
+              >
                 Blog
               </Nav.Link>
-              <Nav.Link as={Link} to="/about" className="link">
+              <Nav.Link
+                as={CustomLink}
+                to="/about"
+                className="text-xl text-white"
+              >
                 About
               </Nav.Link>
-              <Nav.Link href="/home#contact" className="link">
-                Contact
-              </Nav.Link>
+
               {user ? (
                 <button
                   className="text-white bg-blue-500 p-2 rounded"
@@ -44,7 +53,11 @@ const Header = () => {
                   LogOut
                 </button>
               ) : (
-                <Nav.Link as={Link} to="/login" className="link">
+                <Nav.Link
+                  as={CustomLink}
+                  to="/login"
+                  className="text-xl text-white"
+                >
                   Log In
                 </Nav.Link>
               )}

@@ -10,7 +10,10 @@ import auth from "../../firebase.init";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSendPasswordResetEmail,
+} from "react-firebase-hooks/auth";
 import LoginWithSocialAccount from "../LoginWithSocailAccount/LoginWithSocialAccount";
 import Loading from "../Loading/Loading";
 const Login = () => {
@@ -24,6 +27,9 @@ const Login = () => {
   //Email and Password Sign System
   const [signInWithEmailAndPassword, user, loading, hookError] =
     useSignInWithEmailAndPassword(auth);
+  //Password Reset
+  const [sendPasswordResetEmail, sending, error] =
+    useSendPasswordResetEmail(auth);
 
   const handleEmailChange = (e) => {
     setUserInfo({ ...userInfo, email: e.target.value });
@@ -38,10 +44,9 @@ const Login = () => {
     signInWithEmailAndPassword(userInfo.email, userInfo.password);
   };
 
-  if (user) {
-    toast.success("Login Successful !!");
-  }
-
+  const handleResetPassword = async () => {
+    await sendPasswordResetEmail(userInfo.email);
+  };
   useEffect(() => {
     if (hookError) {
       console.log(hookError);
@@ -67,7 +72,7 @@ const Login = () => {
   useEffect(() => {
     if (user) {
       navigate(from);
-      toast("Login Successful !!");
+      toast.success("Login Successful !!");
     }
   }, [user]);
 
@@ -112,7 +117,17 @@ const Login = () => {
             </button>
           </div>
         </Form>
-
+        <p>
+          Forget ?
+          <button
+            className=" text-blue-600"
+            onClick={() => {
+              handleResetPassword();
+            }}
+          >
+            Password
+          </button>
+        </p>
         <p>
           Don't have an account ?
           <Link to={"/signup"} className="decoration-transparent">

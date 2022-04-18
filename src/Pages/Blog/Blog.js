@@ -2,12 +2,12 @@ import React from "react";
 import "./Blog.css";
 const Blog = () => {
   return (
-    <div className="pt-20 pb-40 px-12 max-w-7xl">
+    <div className="pt-20 pb-40 px-12 max-w-7xl mx-auto">
       <h2 className="text-4xl relative section-header text-center pb-2 mb-5">
         Question Mark
       </h2>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-10 ">
-        <div className="question">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-10 gap-4 ">
+        <div className="question animate__animated animate__bounceIn">
           <h3 className="font-semibold">
             Authentication and Authorization Deference ?
           </h3>
@@ -22,7 +22,7 @@ const Blog = () => {
             security.
           </p>
         </div>
-        <div className="question">
+        <div className="question animate__animated animate__bounceIn">
           <h3 className="font-semibold">
             Why are you using firebase? What other options do you have to
             implement authentication?
@@ -37,7 +37,7 @@ const Blog = () => {
             more secure
           </p>
         </div>
-        <div className="question">
+        <div className="question animate__animated animate__bounceIn">
           <h3 className="font-semibold">
             What other services does firebase provide other than authentication?
           </h3>

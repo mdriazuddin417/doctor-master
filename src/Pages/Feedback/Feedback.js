@@ -3,10 +3,10 @@ import React from "react";
 const FeedBack = ({ feedback }) => {
   const { name, text, picture } = feedback;
   return (
-    <div className="border rounded-lg p-3">
+    <div className="border rounded-lg p-3 animate__animated animate__bounceIn">
       <div className="text-center ">
         <div className="my-3 flex justify-center items-center feedback ">
-          <img src={picture} width={100} alt="" className="" />
+          <img src={picture} width={100} alt="" />
         </div>
         <p className="text-gray-300">{text}</p>
         <h3 className="text-xl mb-4">{name}</h3>

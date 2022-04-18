@@ -12,7 +12,7 @@ import CheckOut from "./Pages/CheckOut/CheckOut";
 import SignUp from "./LoginPage/SignUp/SignUp";
 import RequireAuth from "./Pages/RequireAuth/RequireAuth";
 import NotFound from "./Pages/NotFound/NotFound";
-
+import "animate.css";
 function App() {
   return (
     <div>

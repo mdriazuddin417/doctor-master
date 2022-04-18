@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import button from "../../images/button.png";
+
 import useFeedback from "../../hooks/useFeedback";
 import Feedback from "../../Pages/Feedback/Feedback";
 import "./Feedbacks.css";
@@ -8,7 +8,7 @@ const FeedBacks = () => {
   const [button1, setButton1] = useState(false);
 
   return (
-    <div className="maz-w-7xl px-12 py-5 feedbacks mx-auto" id="feedback">
+    <div className="max-w-7xl px-12 py-5 feedbacks mx-auto" id="feedback">
       <h2 className="text-center text-3xl mb-5 section-header relative pb-2">
         WHAT MY PATIENTS SAY
       </h2>

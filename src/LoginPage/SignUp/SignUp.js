@@ -81,14 +81,12 @@ const SignUp = () => {
     event.preventDefault();
     await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
     await updateProfile({ displayName: userInfo.name });
+
+    toast.success("Sent Email....");
   };
 
-  if (updating) {
-    toast.success("Profile Update");
-  }
   useEffect(() => {
     if (hookError) {
-      console.log(hookError);
       switch (hookError?.code) {
         case "auth/invalid-email":
           toast.error("Invalid email !");

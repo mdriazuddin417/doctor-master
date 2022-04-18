@@ -16,19 +16,52 @@ const Banner = () => {
   return (
     <div className=" ">
       <div className="">
-        <Carousel activeIndex={index} onSelect={handleSelect}>
-          <Carousel.Item>
+        <Carousel
+          activeIndex={index}
+          onSelect={handleSelect}
+          className="lg:-z-10"
+        >
+          <Carousel.Item className="relative ">
             <img className="d-block w-100 " src={banner1} alt="First slide" />
+            <Carousel.Caption className="absolute top-50 left-50">
+              <h3 className="lg:text-6xl text-xl  text-blue-400 font-bold ">
+                DENTAL CARE FOR LIFE
+              </h3>
+              <p className="lg:text-2xl  text-sm">
+                If your smile is not becoming to you, then you should be coming
+                to me! Family dentistry with a woman’s touch.
+              </p>
+            </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+
+          <Carousel.Item className="relative">
             <img className="d-block w-100 " src={banner2} alt="Second slide" />
+            <Carousel.Caption className="absolute top-50 left-50">
+              <h3 className="lg:text-6xl text-xl text-blue-400 font-bold">
+                DENTISTRY WITH HEART
+              </h3>
+              <p className="lg:text-2xl text-sm">
+                Creating the healthy smile you want through science and
+                artistry. Because everyone deserves to smile.
+              </p>
+            </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+          <Carousel.Item className="relative">
             <img className="d-block w-100 " src={banner3} alt="Third slide" />
+            <Carousel.Caption className="absolute top-50 left-50">
+              <h3 className="lg:text-6xl text-xl text-blue-400 font-bold">
+                CARE FOR YOUR SMILE
+              </h3>
+              <p className="lg:text-2xl  text-sm ">
+                Relax, this is going to be so easy. The smart way to find a
+                dentist. Get matched with a great dentist today. Seriously, it’s
+                time.
+              </p>
+            </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
       </div>
-      <div className=" px-24  ">
+      <div className="px-4 lg:px-24 max-w-7xl mx-auto lg:mt-[-100px] lg:order-5">
         <div className="grid lg:grid-cols-3   ">
           <div className="bg-sky-400  rounded p-8 text-white border-l-2">
             <AiFillSafetyCertificate className="text-7xl text-white mb-3" />
