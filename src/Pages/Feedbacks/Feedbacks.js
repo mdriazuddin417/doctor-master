@@ -27,7 +27,10 @@ const FeedBacks = () => {
       </div>
       <div>
         <div className="flex justify-center items-center gap-4 mt-4">
-          <div className="button" onClick={() => setButton1(!button1)}></div>
+          <div
+            className={button1 ? "button bg-blue-600" : "button"}
+            onClick={() => setButton1(!button1)}
+          ></div>
           <div className="button" onClick={() => setButton1(!button1)}></div>
         </div>
       </div>

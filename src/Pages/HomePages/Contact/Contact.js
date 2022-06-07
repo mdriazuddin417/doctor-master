@@ -20,7 +20,7 @@ const Contact = () => {
             <textarea placeholder="Your message" rows={5} cols={30}></textarea>
           </div>
         </div>
-        <div className="flex justify-center items-center mt-5">
+        <div className="flex justify-center items-center mt-10">
           <button className="pushable ">
             <span className="front">Submit</span>
           </button>

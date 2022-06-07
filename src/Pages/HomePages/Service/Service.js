@@ -1,43 +1,48 @@
-import React, { useState } from "react";
-import { Card } from "react-bootstrap";
+import React from "react";
+
 import { useAuthState } from "react-firebase-hooks/auth";
 import { CgShoppingCart } from "react-icons/cg";
-import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../../firebase.init";
+import ServiceModel from "./ServiceModel";
 
 const Service = ({ service }) => {
   const [user] = useAuthState(auth);
   const { price, name, id, picture, text } = service;
 
   const handleBooking = () => {
-    if (user) {
-      toast.success("thank you for the booking");
-    }
+    toast.success("thank you for the booking");
   };
   return (
-    <div className="animate__animated animate__fadeInLeft ">
-      <Card className="h-100 rounded-2xl border-0 shadow transition-all hover:scale-[1.1] hover:bg-gray-200">
-        <Card.Img variant="top" src={picture} />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <p className="text-2xl text-blue-600 font-bold">{price}</p>
-          <Card.Text className="text-gray-400">{text}</Card.Text>
-          <Link to={"/checkout"} className="decoration-transparent">
+    <div className="animate__animated animate__fadeInLeft relative ">
+      <div class="card max-w-sm  bg-base-100 shadow-2xl h-full">
+        <figure>
+          <img src={picture} className=" h-[200px] w-full" alt="Shoes" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">{name}</h2>
+          <h2 class="text-3xl text-red-900 font-bold">{price}</h2>
+          <p className="text-gray-400">
+            {text.slice(0, 90)}...
+            <label class="btn btn-link">Read More</label>
+          </p>
+
+          <div class="card-actions justify-end">
             <button
-              className="bg-green-500 text-white  py-2 rounded-2xl w-100 flex justify-center items-center text-xl hover:bg-green-800 hover:text-black hover:transition "
+              className=" absolute bottom-0 w-full left-0 py-2  hover:from-blue-800 hover:to-blue-400 duration-500 bg-gradient-to-t from-blue-400 to-blue-800  btn btn-primary flex  justify-center items-center"
               onClick={() => {
                 handleBooking();
               }}
             >
-              Order Now <CgShoppingCart className="text-2xl ms-2 " />
+              Booking Now{" "}
+              <CgShoppingCart className="text-2xl ms-2 inline-block" />
             </button>
-          </Link>
-        </Card.Body>
-      </Card>
-      <ToastContainer />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

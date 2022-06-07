@@ -1,95 +1,98 @@
 import React, { useState } from "react";
-import { Carousel } from "react-bootstrap";
+
 import banner1 from "../../../images/Banner/banner.jpg";
 import banner2 from "../../../images/Banner/banner2.jpg";
 import banner3 from "../../../images/Banner/banner3.jpg";
-import { AiFillSafetyCertificate } from "react-icons/ai";
-import { GiAlarmClock } from "react-icons/gi";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 
-import { BiLike } from "react-icons/bi";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/autoplay";
+
 const Banner = () => {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
   return (
-    <div className=" ">
-      <div className="">
-        <Carousel
-          activeIndex={index}
-          onSelect={handleSelect}
-          className="lg:-z-10"
+    <Swiper
+      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+      spaceBetween={50}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      autoplay={{ clickable: true }}
+      className="h-[600px] lg:order-1 z-0"
+    >
+      <SwiperSlide>
+        <div
+          class="hero h-[600px] "
+          style={{
+            backgroundImage: `url(${banner1})`,
+          }}
         >
-          <Carousel.Item className="relative ">
-            <img className="d-block w-100 " src={banner1} alt="First slide" />
-            <Carousel.Caption className="absolute top-50 left-50">
-              <h3 className="lg:text-6xl text-xl  text-blue-400 font-bold ">
+          <div class="hero-overlay bg-opacity-60"></div>
+          <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+              <h1 class="mb-5 text-5xl font-bold text-blue-500">
                 DENTAL CARE FOR LIFE
-              </h3>
-              <p className="lg:text-2xl  text-sm">
+              </h1>
+              <p class="mb-5">
                 If your smile is not becoming to you, then you should be coming
                 to me! Family dentistry with a woman’s touch.
               </p>
-            </Carousel.Caption>
-          </Carousel.Item>
-
-          <Carousel.Item className="relative">
-            <img className="d-block w-100 " src={banner2} alt="Second slide" />
-            <Carousel.Caption className="absolute top-50 left-50">
-              <h3 className="lg:text-6xl text-xl text-blue-400 font-bold">
+              <button class="btn btn-primary ">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div
+          class="hero h-[600px]"
+          style={{
+            backgroundImage: `url(${banner2})`,
+          }}
+        >
+          <div class="hero-overlay bg-opacity-60"></div>
+          <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+              <h1 class="mb-5 text-5xl font-bold text-blue-500">
                 DENTISTRY WITH HEART
-              </h3>
-              <p className="lg:text-2xl text-sm">
+              </h1>
+              <p class="mb-5">
                 Creating the healthy smile you want through science and
                 artistry. Because everyone deserves to smile.
               </p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item className="relative">
-            <img className="d-block w-100 " src={banner3} alt="Third slide" />
-            <Carousel.Caption className="absolute top-50 left-50">
-              <h3 className="lg:text-6xl text-xl text-blue-400 font-bold">
+              <button class="btn btn-primary">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div
+          class="hero  h-[600px]"
+          style={{
+            backgroundImage: `url(${banner3})`,
+          }}
+        >
+          <div class="hero-overlay bg-opacity-60"></div>
+          <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+              <h1 class="mb-5 text-5xl font-bold text-blue-500">
                 CARE FOR YOUR SMILE
-              </h3>
-              <p className="lg:text-2xl  text-sm ">
+              </h1>
+              <p class="mb-5">
                 Relax, this is going to be so easy. The smart way to find a
                 dentist. Get matched with a great dentist today. Seriously, it’s
                 time.
               </p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-      </div>
-      <div className="px-4 lg:px-24 max-w-7xl mx-auto lg:mt-[-100px] lg:order-5">
-        <div className="grid lg:grid-cols-3   ">
-          <div className="bg-sky-400  rounded p-8 text-white border-l-2">
-            <AiFillSafetyCertificate className="text-7xl text-white mb-3" />
-            <h3>Certification</h3>
-            <p>
-              Corned beef pancetta ut, aliquip tri-tip turducken pork chop. Cow
-              beef eu bacon jowl pastrami.
-            </p>
-          </div>
-          <div className="bg-sky-400  rounded p-8 text-white border-l-2">
-            <GiAlarmClock className="text-7xl text-white mb-3" />
-            <h3>24/7 Opened</h3>
-            <p>
-              Dolor corned beef ipsum, nulla filet mignon flank in ut minim.
-              Boudin landjaeger pork belly.
-            </p>
-          </div>
-          <div className="bg-sky-400  rounded p-8 text-white border-l-2">
-            <BiLike className="text-7xl text-white mb-3" />
-            <h3>Fair Prices</h3>
-            <p>
-              Lorem chicken culpa, sed filet mignon chuck shank ground und in id
-              laboris laborum short.
-            </p>
+              <button class="btn btn-primary">Get Started</button>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </SwiperSlide>
+    </Swiper>
   );
 };
 

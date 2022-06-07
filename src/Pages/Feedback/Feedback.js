@@ -1,4 +1,5 @@
 import React from "react";
+import ReactStars from "react-rating-stars-component";
 
 const FeedBack = ({ feedback }) => {
   const { name, text, picture } = feedback;
@@ -18,6 +19,9 @@ const FeedBack = ({ feedback }) => {
             width={100}
             className="text-blue-400"
           />
+        </div>
+        <div className="flex justify-center items-center">
+          <ReactStars value={5} count={5} size={40} activeColor="#ffd700" />
         </div>
       </div>
     </div>

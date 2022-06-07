@@ -2,7 +2,8 @@ import React from "react";
 import useServices from "../../hooks/useServices";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const CheckOut = (props) => {
+import { useParams } from "react-router-dom";
+const CheckOut = () => {
   const [services, setServices] = useServices();
 
   const handleToast = () => {

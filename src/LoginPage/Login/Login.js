@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
+
 import { FaRegUserCircle } from "react-icons/fa";
 import "./Login.css";
 
@@ -59,6 +59,9 @@ const Login = () => {
         case "auth/user-not-found":
           toast.error("Please enter a valid Email !");
           break;
+        case "auth/auth/invalid-email":
+          toast.error("Please enter a valid Email !");
+          break;
         case "auth/wrong-password":
           toast.error("Wrong Password !!");
           break;
@@ -88,40 +91,42 @@ const Login = () => {
           <FaRegUserCircle className="text-7xl text-blue-500" />
         </div>
 
-        <h2 className="text-center ">
+        <h2 className="text-center text-3xl font-bold mb-8 ">
           Please <span className="text-blue-500">Log In</span>
         </h2>
-        <Form onSubmit={handleLogin}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
+        <form onSubmit={handleLogin}>
+          <div className="mb-3" controlId="formBasicEmail">
+            <input
               onChange={handleEmailChange}
               type="email"
               placeholder="Enter email"
               required
+              className="input input-bordered w-full"
             />
-          </Form.Group>
+          </div>
 
-          <Form.Group className="mb-3 relative" controlId="formBasicPassword">
-            <Form.Control
+          <div className="mb-3 relative" controlId="formBasicPassword">
+            <input
               onChange={handlePasswordChange}
               type={showPass ? "text" : "password"}
               placeholder="Password"
               required
+              className="input input-bordered w-full"
             />
             <BiShow
-              className="absolute top-2 right-2 text-xl"
+              className="absolute top-3 right-2 text-xl"
               onClick={() => {
                 setShowPass(!showPass);
               }}
             />
-          </Form.Group>
+          </div>
           {loading && <Loading />}
           <div className="flex justify-center items-center mt-3 mb-2">
             <button type="submit" className="pushable ">
               <span className="front">LogIn</span>
             </button>
           </div>
-        </Form>
+        </form>
         <p>
           Forget ?
           <button
@@ -135,7 +140,7 @@ const Login = () => {
         </p>
         <p>
           Don't have an account ?
-          <Link to={"/signup"} className="decoration-transparent">
+          <Link to={"/signup"} className="decoration-transparent btn btn-link">
             SignUp
           </Link>
         </p>

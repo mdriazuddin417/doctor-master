@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
+
 import { FaRegUserCircle } from "react-icons/fa";
-import { BiShow } from "react-icons/bi";
+import { BiShow, BiHide } from "react-icons/bi";
 import {
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
@@ -9,7 +9,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { sendEmailVerification } from "firebase/auth";
 import LoginWithSocialAccount from "../LoginWithSocailAccount/LoginWithSocialAccount";
@@ -62,7 +62,7 @@ const SignUp = () => {
     } else {
       setErrors({
         ...errors,
-        passwordErrors: "Invalid Email",
+        passwordErrors: "Minimum 8 digit with special character,1 number",
       });
       setUserInfo({ ...userInfo, password: "" });
     }
@@ -112,7 +112,7 @@ const SignUp = () => {
       toast.success("Sent Email....");
       navigate(from);
     }
-  }, [user]);
+  }, [user, navigate, from]);
 
   return (
     <div className="h-[100vh] flex justify-center items-center">
@@ -121,21 +121,23 @@ const SignUp = () => {
           <FaRegUserCircle className="text-7xl text-blue-500" />
         </div>
 
-        <h2 className="text-center ">
+        <h2 className="text-center text-3xl mb-8 font-bold">
           Please <span className="text-blue-500">Sign Up</span>
         </h2>
-        <Form onSubmit={handleSignUp}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
+        <form onSubmit={handleSignUp}>
+          <div className="mb-3 form-control" controlId="formBasicEmail">
+            <input
+              className="input input-bordered w-full"
               onChange={handleNameChange}
               type="text"
               placeholder="Your Name"
               name="name"
               required
             />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
+          </div>
+          <div className="mb-3 form-group" controlId="formBasicEmail">
+            <input
+              className="input input-bordered w-full"
               onChange={handleEmailChange}
               type="email"
               placeholder="Enter email"
@@ -143,68 +145,73 @@ const SignUp = () => {
               required
             />
             {errors?.emailErrors && (
-              <p className="text-red-400 text-start font-bold">
-                {errors.emailErrors}
-              </p>
+              <p className="text-red-500">{errors.emailErrors}</p>
             )}
-          </Form.Group>
+          </div>
 
-          <Form.Group className="mb-3 relative" controlId="formBasicPassword">
-            <Form.Control
+          <div className="mb-3 relative" controlId="formBasicPassword">
+            <input
               onChange={handlePasswordChange}
               type={showPass ? "text" : "password"}
               placeholder="Password"
               name="password"
               required
+              className="input input-bordered w-full"
             />
-            <BiShow
-              className="absolute top-2 right-2 text-xl"
-              onClick={() => {
-                setShowPass(!showPass);
-              }}
-            />
+            {showPass ? (
+              <BiHide
+                className="absolute top-3 right-2 text-xl"
+                onClick={() => {
+                  setShowPass(!showPass);
+                }}
+              />
+            ) : (
+              <BiShow
+                className="absolute top-3 right-2 text-xl"
+                onClick={() => {
+                  setShowPass(!showPass);
+                }}
+              />
+            )}
             {errors?.passwordErrors && (
-              <p className="text-red-400 text-start font-bold">
+              <p className="text-red-500 text-start ">
                 {errors.passwordErrors}
               </p>
             )}
-          </Form.Group>
-          <Form.Group className="mb-3 relative" controlId="formBasicPassword">
-            <Form.Control
+          </div>
+          <div className="mb-3 relative" controlId="formBasicPassword">
+            <input
               onChange={handleConfirmPas}
               type={showPass ? "text" : "password"}
               placeholder="Confirm Password"
               required
+              className="input input-bordered w-full"
             />
-            <BiShow
-              className="absolute top-2 right-2 text-xl"
-              onClick={() => {
-                setShowPass(!showPass);
-              }}
-            />
+
             {errors?.confirmPassErrors && (
-              <p className="text-red-400 text-start font-bold">
+              <p className="text-red-500 text-start ">
                 {errors.confirmPassErrors}
               </p>
             )}
-          </Form.Group>
-          {loading && <Loading />}
+          </div>
+
           <div className="flex justify-center items-center mt-3 mb-2">
-            <button type="submit" className="pushable ">
+            <button
+              type="submit"
+              className={loading ? "pushable loading" : "pushable "}
+            >
               <span className="front">Sign Up</span>
             </button>
           </div>
-        </Form>
+        </form>
 
         <p>
           Already have an account ?{" "}
-          <Link to={"/login"} className="decoration-transparent">
+          <Link to={"/login"} className="decoration-transparent btn btn-link">
             Login
           </Link>
         </p>
-        <LoginWithSocialAccount />
       </div>
-      <ToastContainer />
     </div>
   );
 };
